@@ -1,30 +1,48 @@
-import React from 'react';
-import '../estilos/Carrito.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import API_BASE_URL from "../config";
 
-function Carrito({productos, agregarAlCarrito}){
+function Carrito({ usuarioId }) {
+    const [carrito, setCarrito] = useState([]);
 
-  function sumarPreciosProductos(productos) {
-    return productos.reduce((total, producto) => total + parseFloat(producto.precioP), 0);
-  }
-  let totalPrecio = sumarPreciosProductos(productos);  
-  
-  
-  return(
-    <div className="contCarrito">      
-      <ul id='listaCarrito'>
-        {productos.map(producto => ( 
-          <li
-            key={producto.nombreP}> {producto.nombreP} - COP {producto.precioP}
-          </li>           
-        ))}       
-        <strong>Total:</strong>
-        <p>COP {totalPrecio}</p>  
-      </ul>
-      <button id='finCompra'>Finalizar Compra</button>
-      
-    </div>
+    useEffect(() => {
+        const fetchCarrito = async () => {
+            try {
+                const response = await axios.get(`${API_BASE_URL}/carrito/${usuarioId}`);
+                setCarrito(response.data.productos);
+            } catch (error) {
+                console.error("Error obteniendo el carrito:", error);
+            }
+        };
 
-  );
+        fetchCarrito();
+    }, [usuarioId]);
+
+    const handleFinalizarCompra = async () => {
+        try {
+            const response = await axios.post(`${API_BASE_URL}/pedidos/guardar`, {
+                usuario: { id: usuarioId },
+                productos: carrito
+            });
+            console.log("Pedido confirmado:", response.data);
+            alert("Pedido realizado con éxito");
+        } catch (error) {
+            console.error("Error al confirmar pedido:", error);
+        }
+    };
+
+    return (
+        <div className="contCarrito">
+            <ul id="listaCarrito">
+                {carrito.map((producto) => (
+                    <li key={producto.id}>
+                        {producto.nombre} - COP {producto.precio}
+                    </li>
+                ))}
+            </ul>
+            <button id="finCompra" onClick={handleFinalizarCompra}>Finalizar Compra</button>
+        </div>
+    );
 }
 
 export default Carrito;
