@@ -1,0 +1,50 @@
+:root {
+    --col1: #2b2e33;
+    --col2: #fff;
+    --col3: #65db6b;
+}
+
+.contCarrito {
+    display: flex;
+    place-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: var(--col1);
+    z-index: 10;
+    color: var(--col2);
+    border-radius: 5px;
+    width: 300px;
+    padding: 25px;
+
+}
+
+#listaCarrito {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    overflow: auto;
+}
+
+.contCarrito>ul>li {
+    list-style: none;
+}
+
+#finCompra {
+    background-color: var(--col2);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--col1);
+    padding: 5px;
+}
+
+#finCompra:hover {
+    color: var(--col3);
+}
+
+@media (min-width: 320px) and (max-width: 650px){
+    .contCarrito {
+        width: 250px;
+    }
+}

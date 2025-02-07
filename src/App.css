@@ -1,0 +1,189 @@
+:root {
+    --col1: #2b2e33;
+    --col2: #fff;
+    --col3: #65db6b;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.contTienda {
+    background-color: var(--col2);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+#logo {
+    width: 110px ;
+    height: 50px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+
+.carritoForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 30px;
+    width: 98vw;
+    height: 10vh;
+    background-color: var(--col3);
+    margin-bottom: 25px;
+    gap: 30px;
+}
+
+.carri{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 10px;
+    right: 25px;
+    z-index: 10;
+}
+
+.carri img {
+    background-color: var(--col2);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.carritoForm button,
+img{
+    border-style: none;
+    background-color: transparent;
+
+}
+
+#carrito img {   
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+
+
+.contP {
+    margin-top: 75px;
+}
+
+button h2{
+    text-align: center;
+    padding: 25px;
+    box-shadow: 2px 2px 5px var(--col1);
+}
+
+.productos {
+    gap: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#zapatillas,
+#conjuntos,
+#kit {   
+    background-color: var(--col3);
+    font-size: 30px;
+    color: var(--col1);
+    border-style: none;
+    width: 70vw;
+    cursor: pointer;
+}
+
+#kit {
+    margin-bottom: 30px;
+}
+
+#zapatillas:hover,
+#conjuntos:hover,
+#kit:hover {
+    color: var(--col2);
+}
+
+.mediosPago {
+    background-color: var(--col3);
+    height: 100px;
+    width: 95vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 55px;
+    box-shadow: 2px 2px 5px var(--col1);
+}
+
+#tituloMedios {
+    color: var(--col2);
+    font-size: 30px;
+    text-shadow: 2px 2px 5px var(--col1);
+}
+.metodos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 5px;    
+}
+
+.metodos strong{
+    color: var(--col2);
+    text-shadow: 2px 2px 5px var(--col1);
+}
+
+.metodos img {
+    width: 55px;
+    height: 55px;
+}
+
+@media (min-width: 320px) and (max-width: 650px){
+
+    .carritoForm {
+        width: 100vw;
+        height: 25vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #logo {
+        width: 130px;
+        height: 70px;
+        padding-left: 10px;
+    }
+    .mediosPago {
+        width: 90vw;
+        height: 50%;
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    #tituloMedios {
+        font-size: 20px;
+    }
+    #zapatillas,
+    #conjuntos,
+    #kit {      
+        width: 85vw;
+        font-size: 15px;
+    }
+
+    #carrito img {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+@media only screen and (min-height: 320px) and (max-height: 550px) and (orientation: landscape){
+    .carritoForm {
+        height: 20vh;
+    }
+}

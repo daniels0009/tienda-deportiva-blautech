@@ -1,0 +1,62 @@
+:root {
+    --col1: #2b2e33;
+    --col2: #fff;
+    --col3: #65db6b;
+}
+
+.formulario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    gap: 5px;
+}
+
+form input {
+    border-style: none;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+}
+
+#botonLogin {
+    cursor: pointer;
+    color: var(--col2);
+    font-weight: bold;
+    background-color: var(--col1);
+    border-radius: 5px;
+    padding: 7px;
+    margin-left: 5px;
+
+}
+
+#botonLogin:hover {
+    color: var(--col3);
+    background-color: var(--col2);
+}
+
+input::placeholder {
+    text-align: center;
+    font-size: 15px;
+}
+
+
+@media (min-width: 320px) and (max-width: 600px){
+    form {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    #botonLogin {
+        margin-top: 2px;
+        margin-right: 3px;
+    }
+}
+

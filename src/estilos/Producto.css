@@ -1,0 +1,79 @@
+:root {
+    --col1: #2b2e33;
+    --col2: #faf7f3;
+    --col3: #65db6b;
+}
+
+.productosP {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contProduc {
+    background-color: var(--col1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+
+}
+
+.contProduc h3 {
+    color: var(--col2);
+
+}
+
+.contProduc img {
+    width: 250px;
+    height: 250px;
+}
+
+
+#descripcion {
+    text-align: center;
+    color: var(--col2);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#precio {
+    color: var(--col2);
+    font-weight: bold;
+    font-size: 25px;
+   
+}
+
+#tituloTalle {
+    color: var(--col2);
+}
+
+#botonAgregar {
+    width: 100px;
+    background-color: var(--col2);
+    color: var(--col3);
+    font-size: 10px;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin-top: 10px;
+    border-style: none;
+    padding: 5px;
+    cursor: pointer;
+    flex-wrap: wrap;
+}
+
+#botonAgregar:hover {
+    color: var(--col1);
+}
+
+@media (min-width: 320px) and (max-width: 650px){
+    .contProduc {
+        width: 350px;
+    }
+}
+
